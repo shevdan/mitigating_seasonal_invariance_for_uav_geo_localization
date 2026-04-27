@@ -1,0 +1,30 @@
+# Seasonal Augmentation Pipeline Dependencies
+
+# Core
+torch>=2.0.0
+torchvision>=0.15.0
+numpy>=1.24.0
+pillow>=9.0.0
+opencv-python>=4.8.0
+tqdm>=4.65.0
+
+# Diffusion Models
+diffusers>=0.25.0
+transformers>=4.36.0
+accelerate>=0.25.0
+safetensors>=0.4.0
+
+# ControlNet
+controlnet-aux>=0.0.7  # Preprocessors for ControlNet
+
+# Depth Estimation
+timm>=0.9.0  # For MiDaS/DPT models
+
+# Style Transfer (optional)
+# neural-style-transfer  # Or use custom implementation
+
+# Utilities
+pyyaml>=6.0
+pandas>=2.0.0
+matplotlib>=3.7.0
+scipy>=1.10.0  # Used by consistency.py (scipy.ndimage for SSIM helpers)

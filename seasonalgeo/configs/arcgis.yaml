@@ -1,0 +1,36 @@
+# ArcGIS World Imagery configuration
+# Uses Esri's World Imagery tile service (XYZ tiles) and Wayback for temporal snapshots.
+# Free for academic/research use with an ArcGIS Developer account.
+
+# Tile source
+tile_url: "https://services.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}"
+# Wayback tile URL (for specific temporal releases)
+wayback_tile_url: "https://wayback.maptiles.arcgis.com/arcgis/rest/services/World_Imagery/WMTS/1.0.0/default028mm/MapServer/tile/{release}/{z}/{y}/{x}"
+# Wayback releases config
+wayback_config_url: "https://s3-us-west-2.amazonaws.com/config.maptiles.arcgis.com/waybackconfig.json"
+# Imagery metadata service (for capture dates and resolution)
+metadata_url: "https://services.arcgisonline.com/arcgis/rest/services/World_Imagery/MapServer/3/query"
+
+# Zoom level: 18 (~0.6m/px), 19 (~0.3m/px), 20 (~0.15m/px)
+# Higher zoom may not be available everywhere
+zoom: 18
+fallback_zoom: 17  # Use if primary zoom returns blank tiles
+
+# Season definitions (for Wayback temporal selection)
+seasons:
+  spring: {months: [3, 4, 5]}
+  summer: {months: [6, 7, 8]}
+  autumn: {months: [9, 10, 11]}
+  winter: {months: [12, 1, 2]}
+
+year_range: [2019, 2025]
+
+# Rate limiting (be respectful to the free service)
+request_delay_s: 0.02  # 20ms between tile requests
+max_concurrent: 4
+
+# Export settings
+export:
+  save_geotiff: true
+  save_rgb_jpg: true
+  jpg_quality: 95

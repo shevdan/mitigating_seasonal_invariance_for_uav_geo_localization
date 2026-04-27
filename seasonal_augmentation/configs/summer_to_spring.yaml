@@ -1,0 +1,28 @@
+# Summer to Spring transformation config
+
+# Model settings
+controlnet_model: "lllyasviel/control_v11f1p_sd15_depth"
+sd_model: "runwayml/stable-diffusion-v1-5"
+
+# Generation parameters
+num_inference_steps: 30
+controlnet_scale: 0.8
+guidance_scale: 7.5
+# seed: random (quality gate handles bad outputs)
+
+# Use img2img mode — subtle shift, spring is close to summer
+use_img2img: true
+img2img_strength: 0.45
+
+# Prompts — spring: lighter greens, blooming, softer light
+positive_prompt: >
+  spring aerial photograph, fresh light green new growth,
+  blooming trees, lighter brighter foliage tones,
+  soft diffused spring lighting, drone view from above,
+  high resolution, photorealistic
+
+negative_prompt: >
+  dense dark summer green, autumn, fall colors, orange, yellow brown,
+  winter, snow, ice, frost, bare trees,
+  different buildings, changed structure, new objects,
+  blurry, low quality, distorted, unrealistic, cartoon, painting

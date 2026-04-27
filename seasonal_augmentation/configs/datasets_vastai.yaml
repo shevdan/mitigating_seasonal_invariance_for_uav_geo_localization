@@ -1,0 +1,28 @@
+# Dataset configurations for Vast.ai (absolute paths under /workspace)
+
+denseuav:
+  name: "DenseUAV"
+  base_path: "/workspace/data/DenseUAV"
+  drone_paths:
+    - "train/drone"
+    - "test/query_drone"
+  extensions: [".jpg", ".jpeg", ".png", ".JPG", ".JPEG", ".PNG"]
+  description: "DenseUAV with multiple flight heights (H80, H90, H100)"
+
+uavvisloc:
+  name: "UAV-VisLoc"
+  base_path: "/workspace/data/UAV_VisLoc_dataset"
+  drone_paths:
+    - "01/drone"
+    - "02/drone"
+    - "03/drone"
+    - "04/drone"
+    - "05/drone"
+    - "06/drone"
+    - "07/drone"
+    - "08/drone"
+    - "09/drone"
+    - "10/drone"
+    - "11/drone"
+  extensions: [".jpg", ".jpeg", ".png", ".JPG", ".JPEG", ".PNG"]
+  description: "UAV-VisLoc dataset - all 11 flights, raw drone images"

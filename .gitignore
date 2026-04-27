@@ -205,3 +205,80 @@ cython_debug/
 marimo/_static/
 marimo/_lsp/
 __marimo__/
+
+# ============================================================
+# Project-specific (UAV cross-view geo-localization thesis)
+# ============================================================
+
+# Datasets and intermediate data
+data/
+output/
+outputs/
+georecords/
+
+# Trained model weights (released separately via the dataset archives)
+weights/
+*.pth
+*.pt
+*.ckpt
+*.safetensors
+
+# Per-dataset training-output directories under Sample4Geo
+Sample4Geo/data/
+Sample4Geo/weights/
+Sample4Geo/sues200/
+Sample4Geo/denseuav/
+Sample4Geo/uavvisloc/
+Sample4Geo/university/
+
+# Generated drone views, depth maps, IP2P pilot outputs, etc.
+seasonal_augmentation/outputs/
+seasonal_augmentation/models/
+
+# Archives produced by scripts/pack_dataset_archive.sh
+archives/
+*.tar
+*.tar.gz
+
+# Run logs
+*.log
+*.out
+
+# Conda / venv
+.venv/
+venv/
+env/
+
+# Secrets and local config
+.env
+*.key
+credentials.json
+
+# IDEs
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# LaTeX build artefacts (in case the thesis source is committed)
+*.aux
+*.toc
+*.lof
+*.lot
+*.bbl
+*.blg
+*.bcf
+*.run.xml
+*.synctex.gz
+*.fdb_latexmk
+*.fls
+*.out
+*.nav
+*.snm
+*.vrb
+
+# HuggingFace / model caches
+.cache/
+hf_cache/

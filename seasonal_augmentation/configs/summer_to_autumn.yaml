@@ -1,0 +1,29 @@
+# Summer to Autumn transformation config
+
+# Model settings
+controlnet_model: "lllyasviel/control_v11f1p_sd15_depth"
+sd_model: "runwayml/stable-diffusion-v1-5"
+
+# Generation parameters
+num_inference_steps: 30
+controlnet_scale: 0.8
+guidance_scale: 7.5
+# seed: random (quality gate handles bad outputs)
+
+# Use img2img mode — start from original, shift colors
+# strength 0.45 = keep 55% of original, noticeable but controlled change
+use_img2img: true
+img2img_strength: 0.3
+
+# Prompts — autumn: visible seasonal change, trees yellowing/browning
+positive_prompt: >
+  autumn aerial photograph, trees turning yellow and brown,
+  autumn foliage color change, warm golden tones,
+  dry grass, autumn atmosphere, drone view from above,
+  high resolution, photorealistic
+
+negative_prompt: >
+  bright red maple leaves, carpet of fallen leaves,
+  bare trees, winter, snow, spring, summer green,
+  different buildings, changed structure, new objects,
+  blurry, low quality, distorted, unrealistic, cartoon, painting

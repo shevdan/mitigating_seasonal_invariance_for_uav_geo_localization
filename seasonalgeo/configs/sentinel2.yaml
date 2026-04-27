@@ -1,0 +1,34 @@
+collection: COPERNICUS/S2_SR_HARMONIZED
+bands_rgb: [B4, B3, B2]
+bands_all: [B2, B3, B4, B8]
+scale: 10  # meters/pixel
+max_cloud_cover_metadata: 30  # pre-filter on metadata
+
+# SCL (Scene Classification Layer) values to mask
+scl_cloud_values: [8, 9, 10]  # cloud_medium, cloud_high, cirrus
+scl_shadow_values: [3]         # cloud_shadow
+
+seasons:
+  spring: {months: [3, 4, 5]}
+  summer: {months: [6, 7, 8]}
+  autumn: {months: [9, 10, 11]}
+  winter: {months: [12, 1, 2]}
+
+year_range: [2019, 2025]
+composite_method: median
+
+# GEE service account credentials
+gee:
+  project_id: cv1msc
+  service_account: diploma@cv1msc.iam.gserviceaccount.com
+  key_file: ~/.config/earthengine/credentials/cv1msc-386273fc575e.json
+
+export:
+  save_geotiff: true
+  save_rgb_jpg: true
+  jpg_quality: 95
+
+retrieval:
+  max_workers: 5
+  retry_count: 3
+  retry_delay_s: 30

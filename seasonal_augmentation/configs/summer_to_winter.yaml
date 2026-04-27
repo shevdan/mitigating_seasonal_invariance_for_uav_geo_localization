@@ -1,0 +1,25 @@
+# Summer to Winter transformation config
+
+# Model settings
+controlnet_model: "lllyasviel/control_v11f1p_sd15_depth"
+sd_model: "runwayml/stable-diffusion-v1-5"
+
+# Generation parameters
+num_inference_steps: 30
+controlnet_scale: 0.95  # Higher = stricter structure preservation (was 0.8)
+guidance_scale: 5.5     # Lower = less aggressive changes (was 7.5)
+# seed: random (quality gate handles bad outputs)
+
+# Prompts - Focus on COLOR/TEXTURE changes, avoid mentioning specific objects
+# This prevents the model from adding trees where there weren't any
+positive_prompt: >
+  winter aerial photograph, snow and frost covering all surfaces,
+  white and grey winter tones, cold muted colors,
+  drone view from above, same composition, photorealistic,
+  winter color grading, frost texture
+
+negative_prompt: >
+  summer, green, vibrant colors, autumn, orange, yellow,
+  new objects, additional elements, changed composition, different layout,
+  trees where there were none, altered structure,
+  blurry, low quality, distorted, cartoon, painting

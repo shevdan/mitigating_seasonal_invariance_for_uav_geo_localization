@@ -1,0 +1,59 @@
+# Planet Labs PlanetScope configuration
+item_type: PSScene
+asset_type: ortho_analytic_4b_sr    # Surface reflectance, 4-band
+udm2_asset: ortho_udm2
+
+# Band mapping (Planet band order: Blue, Green, Red, NIR)
+bands_all: [Blue, Green, Red, NIR]
+bands_rgb: [Red, Green, Blue]
+scale: 3  # meters/pixel (native PlanetScope)
+
+# Cloud filtering (0-100 scale in config, converted to 0-1 for API)
+max_cloud_cover: 30
+
+# Scene selection (not compositing — Planet has no server-side compositing)
+selection_method: best   # best = lowest cloud cover
+min_valid_pixel_ratio: 0.85  # retry with next scene if < 85% non-black pixels
+
+# Season definitions (same as sentinel2)
+seasons:
+  spring: {months: [3, 4, 5]}
+  summer: {months: [6, 7, 8]}
+  autumn: {months: [9, 10, 11]}
+  winter: {months: [12, 1, 2]}
+
+year_range: [2019, 2025]
+
+# Planet API authentication
+# API key can also be set via PL_API_KEY environment variable
+# api_key: null
+
+# Download method: "tiles" (Scene Tiles API, default) or "scene" (full scene download)
+# "tiles" uses Scene Tiles quota (100k tiles/month) — ideal for small bboxes
+# "scene" uses Scene Downloads quota (km²-based) — wastes quota on full scenes
+download_method: tiles
+
+# Quota tracking (Education & Research tier)
+quota_limit_km2: 3000.0
+quota_limit_tiles: 100000
+warn_at_pct: 80
+
+# Visualization parameters for RGB JPEG
+vis_min: 0
+vis_max: 3000
+
+# Asset activation timeouts (SR assets can take several minutes)
+activation_timeout_s: 600
+activation_poll_interval_s: 10
+
+# Export settings
+export:
+  save_geotiff: true
+  save_rgb_jpg: true
+  jpg_quality: 95
+
+# Retrieval settings
+retrieval:
+  retry_count: 3
+  retry_delay_s: 30
+  search_limit: 100
