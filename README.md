@@ -36,7 +36,6 @@ The multipositive loss recovers most of the cross-season degradation. Winter Rec
 │   │   ├── prepare_multiseasonal.py          Builds multi-seasonal dataset structure
 │   │   ├── prepare_for_sample4geo.py         Converts outputs to Sample4Geo format
 │   │   ├── compare_ip2p_vs_multicontrolnet.py  Backs the IP2P pilot in the thesis
-│   │   └── build_appendix_seasonal_panels.py   Reproduces appendix figures
 │   └── configs/                Per-season generation hyperparameters (YAML)
 │
 ├── Sample4Geo/                 Training framework (forked from Sample4Geo)
@@ -44,10 +43,6 @@ The multipositive loss recovers most of the cross-season degradation. Winter Rec
 │   ├── train_*_seasonal.py     Multipositive training scripts (DenseUAV, UAV-VisLoc, U-1652)
 │   ├── train_{denseuav,uavvisloc,university}.py   Single-positive baselines
 │   ├── eval_seasonal.py        Standalone evaluator for saved checkpoints
-│   └── run_eval_m234_*.sh      M2/M3/M4 evaluation across query seasons
-│
-├── scripts/
-│   └── pack_dataset_archive.sh Packs per-dataset archives for distribution
 │
 ├── pyproject.toml              seasonalgeo package configuration
 ├── requirements.txt            seasonalgeo dependencies
